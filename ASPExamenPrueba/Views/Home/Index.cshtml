@@ -1,8 +1,37 @@
-﻿@{
+﻿@model ASPExamenPrueba.Models.VM.ListadoCandidatosMisionesVM
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h2>Misiones Tony Soprano</h2>
+
+    <form asp-action="Index" method="post">
+    <select name="Dificultad">
+        @foreach (var mision in Model.misiones)
+        {
+            <option value="@mision.Dificultad">@mision.Nombre</option>
+        }
+        </select>
+        <button type="submit">Ver candidatos</button>
+    </form>
+
+    @if (Model.candidatos !=null)
+    {
+        <table border="1">
+            <tbody>
+                <tr>
+                    <td>Nombre</td>
+                    <td>Apellido</td>
+                </tr>
+
+                @foreach (var candidato in Model.candidatos)
+                {
+                    <tr>
+                    <td>@candidato.Nombre @Html.ActionLink("Ver Detalles", "CandidatoDetails", "Home", new { id = candidato.Id }, null)</td>
+                    <td>@candidato.Apellidos</td>
+                    </tr>
+                    
+                }
+            </tbody>
+        </table>
+    }

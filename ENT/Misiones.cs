@@ -33,8 +33,16 @@ namespace ENT
         }
         #endregion
         #region Constructores
+        /// <summary>
+        /// Constructor sin parametros
+        /// </summary>
         public Misiones() { }
-
+        /// <summary>
+        /// Constructor sin parametros
+        /// </summary>
+        /// <param name="id">Id que se obtiene de la base de datos</param>
+        /// <param name="nombre">Nombre la mision que se obtiene de la base de datos</param>
+        /// <param name="dificultad">Dificultad de la mision que se obtiene de la base de datos</param>
         public Misiones(int id, string nombre, int dificultad)
         {
             this.id = id;

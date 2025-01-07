@@ -1,16 +1,17 @@
 ﻿namespace ENT
 {
-    public class Candidatos
+    public class Candidato
     {
         #region Atributos
         private int id;
         private string nombre;
         private string apellidos;
+        private int edad;
         private string direccion;
         private string pais;
         private string telefono;
         private DateTime fechaNac;
-        private decimal precioMedio;
+        private int precioMedio;
         #endregion
         #region Propiedades
         public int Id
@@ -25,6 +26,9 @@
             set { nombre = value; }
         }
 
+        public int Edad{
+            get { return DateTime.Now.Year - fechaNac.Year; }
+        }
         public string Apellidos
         {
             get { return apellidos; }
@@ -55,17 +59,27 @@
             set { fechaNac = value; }
         }
 
-        public decimal PrecioMedio
+        public int PrecioMedio
         {
             get { return precioMedio; }
             set { precioMedio = value; }
         }
         #endregion
         #region Constructores
-        public Candidatos() { }
+        public Candidato() { }
 
-        // Constructor con parámetros
-        public Candidatos(int id, string nombre, string apellidos, string direccion, string pais, string telefono, DateTime fechaNac, decimal precioMedio)
+        /// <summary>
+        /// Constructor con parametros
+        /// </summary>
+        /// <param name="id">id del candidato obtenido de la base de datos</param>
+        /// <param name="nombre">nombre del candidato obtenido de la base de datos</param>
+        /// <param name="apellidos">apellido del candidato obtenido de la base de datos</param>
+        /// <param name="direccion">direccion del candidato obtenido de la base de datos</param>
+        /// <param name="pais">pais del candidato obtenido de la base de datos</param>
+        /// <param name="telefono">telefono del candidato obtenido de la base de datos</param>
+        /// <param name="fechaNac">fecha de nacimiento del candidato obtenido de la base de datos</param>
+        /// <param name="precioMedio">Precio del candidato obtenido de la base de datos</param>
+        public Candidato(int id, string nombre, string apellidos, string direccion, string pais, string telefono, DateTime fechaNac, int precioMedio)
         {
             this.id = id;
             this.nombre = nombre;
